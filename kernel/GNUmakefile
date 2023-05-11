@@ -51,9 +51,8 @@ override CFLAGS += \
     -ffreestanding \
     -fno-stack-protector \
     -fno-stack-check \
-    -fno-lto \
-    -fno-PIE \
-    -fno-PIC \
+    -fPIE \
+    -fPIC \
     -m64 \
     -march=x86-64 \
     -mabi=sysv \
@@ -62,7 +61,6 @@ override CFLAGS += \
     -mno-sse \
     -mno-sse2 \
     -mno-red-zone \
-    -mcmodel=kernel
 
 # Internal C preprocessor flags that should not be changed by the user.
 override CPPFLAGS := \
