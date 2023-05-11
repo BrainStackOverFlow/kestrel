@@ -51,9 +51,8 @@ override CFLAGS += \
     -ffreestanding \
     -fno-stack-protector \
     -fno-stack-check \
-    -fno-lto \
-    -fno-PIE \
-    -fno-PIC \
+    -fPIE \
+    -fPIC \
     -m64 \
     -march=x86-64 \
     -mabi=sysv \
