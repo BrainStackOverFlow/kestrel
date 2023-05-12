@@ -1,7 +1,16 @@
-IndentWidth: 4
+Language: Cpp
+BasedOnStyle: WebKit
+
 ColumnLimit: 80
 
-DerivePointerAlignment: false
-PointerAlignment: Left
+AlignAfterOpenBracket: BlockIndent
+
+BinPackArguments: false
+AllowAllArgumentsOnNextLine: false
 
 BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+AllowShortFunctionsOnASingleLine: false
+
+AlignOperands: AlignAfterOperator

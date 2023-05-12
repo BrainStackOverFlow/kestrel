@@ -13,8 +13,10 @@ typedef struct {
     uint8_t rows[FONT_CHARACTER_HEIGHT];
 } font_character_t;
 
-static_assert(sizeof(uint8_t) * CHAR_BIT == FONT_CHARACTER_WIDTH,
-              "Line width doesn't match uint8_t bit count");
+static_assert(
+    sizeof(uint8_t) * CHAR_BIT == FONT_CHARACTER_WIDTH,
+    "Line width doesn't match uint8_t bit count"
+);
 
 typedef struct {
     font_character_t characters[FONT_CHARACTER_COUNT];
