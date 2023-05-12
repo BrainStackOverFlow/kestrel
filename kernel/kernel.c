@@ -1,5 +1,5 @@
-
 #include "libc/stdio.h"
+#include "pmm.h"
 #include "printf/printf_support.h"
 #include "terminal/terminal.h"
 #include <limine.h>
@@ -13,6 +13,12 @@ static volatile struct limine_entry_point_request entry_request = {
     .id = LIMINE_ENTRY_POINT_REQUEST,
     .revision = 0,
     .entry = entry,
+};
+
+struct limine_memmap_request limine_memmap_request = {
+    .id = LIMINE_MEMMAP_REQUEST,
+    .revision = 0,
+    .response = NULL,
 };
 
 static void hcf(void)
@@ -42,6 +48,11 @@ void entry(void)
     printf_init(&terminal);
 
     printf("Hello Kernel Mode!\n");
+
+    pmm_t pmm;
+    pmm_init(&pmm, limine_memmap_request.response);
+    void* page = pmm_alloc_pages(&pmm, 1);
+    printf("ALLOCATED PAGE: %p\n", page);
 
 cleanup:
     hcf();
