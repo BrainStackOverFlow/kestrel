@@ -2,7 +2,8 @@
 
 #include <stdbool.h>
 
-void copy_memory(void* destination, const void* source, size_t size) {
+void copy_memory(void* destination, const void* source, size_t size)
+{
     uint8_t* destination_bytes = (uint8_t*)destination;
     const uint8_t* source_bytes = (const uint8_t*)source;
 
@@ -11,7 +12,8 @@ void copy_memory(void* destination, const void* source, size_t size) {
     }
 }
 
-void set_memory(void* memory, uint8_t value, size_t size) {
+void set_memory(void* memory, uint8_t value, size_t size)
+{
     uint8_t* memory_bytes = (uint8_t*)memory;
 
     for (size_t index = 0; index < size; index++) {
@@ -19,7 +21,8 @@ void set_memory(void* memory, uint8_t value, size_t size) {
     }
 }
 
-void move_memory(void* destination, const void* source, size_t size) {
+void move_memory(void* destination, const void* source, size_t size)
+{
     uint8_t* destination_bytes = (uint8_t*)destination;
     const uint8_t* source_bytes = (const uint8_t*)source;
 
@@ -34,7 +37,8 @@ void move_memory(void* destination, const void* source, size_t size) {
     }
 }
 
-int compare_memory(const void* buffer_1, const void* buffer_2, size_t size) {
+int compare_memory(const void* buffer_1, const void* buffer_2, size_t size)
+{
     const uint8_t* buffer_1_byte = (const uint8_t*)buffer_1;
     const uint8_t* buffer_2_byte = (const uint8_t*)buffer_2;
 

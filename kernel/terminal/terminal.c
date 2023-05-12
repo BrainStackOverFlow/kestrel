@@ -3,7 +3,8 @@
 
 #include "utility/string.h"
 
-void terminal_initialize(terminal_t* terminal, frame_buffer_t* frame_buffer) {
+void terminal_initialize(terminal_t* terminal, frame_buffer_t* frame_buffer)
+{
     terminal->frame_buffer = frame_buffer;
     terminal->max_col = frame_buffer->width / FONT_CHARACTER_WIDTH;
     terminal->max_row = frame_buffer->height / FONT_CHARACTER_HEIGHT,
@@ -13,7 +14,8 @@ void terminal_initialize(terminal_t* terminal, frame_buffer_t* frame_buffer) {
     terminal->background_color = black_color;
 }
 
-void terminal_draw_character(terminal_t* terminal, char character) {
+void terminal_draw_character(terminal_t* terminal, char character)
+{
     if ('\n' == character) {
         terminal->row++;
         terminal->col = 0;
@@ -26,9 +28,12 @@ void terminal_draw_character(terminal_t* terminal, char character) {
         };
 
         frame_buffer_draw_character(
-            terminal->frame_buffer, &position,
+            terminal->frame_buffer,
+            &position,
             &standard_font.characters[(size_t)character],
-            terminal->foreground_color, terminal->background_color);
+            terminal->foreground_color,
+            terminal->background_color
+        );
 
         terminal->col++;
         if (terminal->max_col < terminal->col) {
@@ -41,7 +46,8 @@ void terminal_draw_character(terminal_t* terminal, char character) {
     }
 }
 
-void terminal_draw_string(terminal_t* terminal, const char* string) {
+void terminal_draw_string(terminal_t* terminal, const char* string)
+{
     for (size_t i = 0; i < string_length(string); i++) {
         terminal_draw_character(terminal, string[i]);
     }

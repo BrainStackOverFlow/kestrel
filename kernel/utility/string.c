@@ -2,7 +2,8 @@
 
 #include <stdbool.h>
 
-size_t string_length(const char* string) {
+size_t string_length(const char* string)
+{
     size_t length = 0;
 
     while (true) {
