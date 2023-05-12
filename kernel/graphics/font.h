@@ -18,6 +18,6 @@ static_assert(sizeof(uint8_t) * CHAR_BIT == FONT_CHARACTER_WIDTH,
 
 typedef struct {
     font_character_t characters[FONT_CHARACTER_COUNT];
-} font_map_t;
+} font_t;
 
-extern font_map_t standard_font_map;
+extern font_t standard_font;

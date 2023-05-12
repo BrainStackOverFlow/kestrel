@@ -1,6 +1,6 @@
 #include "graphics/font.h"
 
-font_map_t standard_font_map = {
+font_t standard_font = {
     .characters = {
         {
             .rows = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00},
