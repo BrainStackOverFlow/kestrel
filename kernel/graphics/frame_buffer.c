@@ -11,12 +11,12 @@ static void frame_buffer_draw_pixel(frame_buffer_t* framebuffer,
                                     color_t color);
 
 void frame_buffer_initialize(frame_buffer_t* frame_buffer,
-                             struct limine_framebuffer* limine_frame_buffer) {
-    frame_buffer->address = limine_frame_buffer->address;
-    frame_buffer->width = limine_frame_buffer->width;
-    frame_buffer->height = limine_frame_buffer->height;
-    frame_buffer->pitch = limine_frame_buffer->pitch;
-    frame_buffer->pixel_width = limine_frame_buffer->bpp / 8;
+                             struct limine_framebuffer* limine_framebuffer) {
+    frame_buffer->address = limine_framebuffer->address;
+    frame_buffer->width = limine_framebuffer->width;
+    frame_buffer->height = limine_framebuffer->height;
+    frame_buffer->pitch = limine_framebuffer->pitch;
+    frame_buffer->pixel_width = limine_framebuffer->bpp / 8;
 }
 
 void frame_buffer_draw_character(frame_buffer_t* frame_buffer,

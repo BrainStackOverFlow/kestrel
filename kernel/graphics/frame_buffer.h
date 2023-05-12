@@ -15,7 +15,7 @@ typedef struct {
 } frame_buffer_t;
 
 void frame_buffer_initialize(frame_buffer_t* frame_buffer,
-                             struct limine_framebuffer* limine_frame_buffer);
+                             struct limine_framebuffer* limine_framebuffer);
 
 void frame_buffer_draw_character(frame_buffer_t* frame_buffer,
                                  position_t* position,

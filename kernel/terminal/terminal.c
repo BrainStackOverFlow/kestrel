@@ -27,7 +27,7 @@ void terminal_draw_character(terminal_t* terminal, char character) {
 
         frame_buffer_draw_character(
             terminal->frame_buffer, &position,
-            &standard_font_map.characters[(size_t)character],
+            &standard_font.characters[(size_t)character],
             terminal->foreground_color, terminal->background_color);
 
         terminal->col++;
