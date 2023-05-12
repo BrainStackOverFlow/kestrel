@@ -62,7 +62,11 @@ override CFLAGS += \
     -mno-sse \
     -mno-sse2 \
     -mno-red-zone \
-    -mcmodel=kernel
+    -mcmodel=kernel \
+    -D PRINTF_SUPPORT_EXPONENTIAL_SPECIFIERS=0 \
+    -D PRINTF_SUPPORT_DECIMAL_SPECIFIERS=0 \
+    -D PRINTF_ALIAS_STANDARD_FUNCTION_NAMES=1 \
+    -D PRINTF_ALIAS_STANDARD_FUNCTION_NAMES_HARD=1
 
 # Internal C preprocessor flags that should not be changed by the user.
 override CPPFLAGS := \
@@ -91,7 +95,8 @@ override NASMFLAGS += \
 
 # Use "find" to glob all *.c, *.S, and *.asm files in the tree and obtain the
 # object and header dependency file names.
-override CFILES := $(shell find -L . -type f -name '*.c')
+CFILES := $(shell find -L . -type f -name '*.c')
+CFILES += $(filter-out $(CFILES),./printf/printf.c)
 override ASFILES := $(shell find -L . -type f -name '*.S')
 override NASMFILES := $(shell find -L . -type f -name '*.asm')
 override OBJ := $(CFILES:.c=.o) $(ASFILES:.S=.o) $(NASMFILES:.asm=.o)
@@ -104,6 +109,12 @@ all: $(KERNEL)
 limine.h:
 	curl -Lo $@ https://github.com/limine-bootloader/limine/raw/trunk/limine.h
 
+printf/printf.h:
+	curl -Lo $@  https://github.com//eyalroz/printf/raw/v6.1.0/src/printf/printf.h
+
+printf/printf.c:
+	curl -Lo $@ https://github.com//eyalroz/printf/raw/v6.1.0/src/printf/printf.c
+
 # Link rules for the final kernel executable.
 $(KERNEL): $(OBJ)
 	$(LD) $(OBJ) $(LDFLAGS) -o $@
@@ -112,7 +123,7 @@ $(KERNEL): $(OBJ)
 -include $(HEADER_DEPS)
 
 # Compilation rules for *.c files.
-%.o: %.c limine.h
+%.o: %.c limine.h printf/printf.h
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 # Compilation rules for *.S files.
@@ -130,4 +141,4 @@ clean:
 
 .PHONY: distclean
 distclean: clean
-	rm -f limine.h
+	rm -f limine.h printf/printf.h printf/printf.c
