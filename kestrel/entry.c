@@ -29,8 +29,9 @@ void entry(void)
 
     terminal_draw_string(&terminal, "Hello, world!\n");
 
-    set_default_terminal(&terminal);
-    terminal_draw_format(&terminal, "%x\n", 0x69);
+    // terminal_draw_format(&terminal, "%x\n", 0x69);
+
+    // set_default_terminal(&terminal);
     // printf("A");
 
 cleanup:
