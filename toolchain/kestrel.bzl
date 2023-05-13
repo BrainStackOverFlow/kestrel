@@ -32,7 +32,7 @@ def kestrel_toolchain_config_implementation(ctx):
         ),
         tool_path(
             name = "ar",
-            path = "/bin/false",
+            path = "/usr/bin/ar",
         ),
         tool_path(
             name = "cpp",
@@ -66,7 +66,6 @@ def kestrel_toolchain_config_implementation(ctx):
         ACTION_NAMES.cpp_link_executable,
         ACTION_NAMES.cpp_link_dynamic_library,
         ACTION_NAMES.cpp_link_nodeps_dynamic_library,
-        ACTION_NAMES.cpp_link_static_library,
     ]
 
     features = [
@@ -84,8 +83,8 @@ def kestrel_toolchain_config_implementation(ctx):
                                 "-Wall",
                                 "-Wextra",
                                 "-Wpedantic",
-                                "-Wpadded",
-                                "-std=gnu11",
+                                # "-Wpadded",
+                                "-std=c2x",
                                 "-ffreestanding",
                                 "-fno-stack-protector",
                                 "-fno-stack-check",

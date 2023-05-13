@@ -3,6 +3,13 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 new_git_repository(
     name = "limine",
     build_file = "limine/build",
-    commit = "475b34ce6720d0afbd66bb7355f2f9ccc352dc23",
     remote = "https://github.com/limine-bootloader/limine.git",
+    tag = "v4.20230503.0-binary",
+)
+
+new_git_repository(
+    name = "printf",
+    build_file = "printf/build",
+    remote = "https://github.com/eyalroz/printf.git",
+    tag = "v6.1.0",
 )

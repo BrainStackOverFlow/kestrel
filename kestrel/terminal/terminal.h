@@ -19,3 +19,5 @@ void terminal_initialize(terminal_t* terminal, frame_buffer_t* frame_buffer);
 void terminal_draw_character(terminal_t* terminal, char character);
 
 void terminal_draw_string(terminal_t* terminal, const char* string);
+
+void terminal_draw_format(terminal_t* terminal, const char* format, ...);

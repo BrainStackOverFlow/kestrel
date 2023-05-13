@@ -1,6 +1,7 @@
 cc_library(
     name = "limine",
     hdrs = ["limine.h"],
+    copts = ["-Wno-padded"],
     visibility = ["//visibility:public"],
 )
 

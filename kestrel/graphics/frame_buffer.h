@@ -20,7 +20,7 @@ void frame_buffer_initialize(
 
 void frame_buffer_draw_character(
     frame_buffer_t* frame_buffer,
-    position_t* position,
+    position_t position,
     font_character_t* font_character,
     color_t foreground_color,
     color_t backound_color

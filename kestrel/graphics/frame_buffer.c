@@ -8,7 +8,7 @@
 
 static void frame_buffer_draw_pixel(
     frame_buffer_t* framebuffer,
-    position_t* position,
+    position_t position,
     color_t color
 );
 
@@ -26,7 +26,7 @@ void frame_buffer_initialize(
 
 void frame_buffer_draw_character(
     frame_buffer_t* frame_buffer,
-    position_t* position,
+    position_t position,
     font_character_t* font_character,
     color_t foreground_color,
     color_t backound_color
@@ -44,23 +44,23 @@ void frame_buffer_draw_character(
                 = is_foreground_color ? foreground_color : backound_color;
 
             position_t pixel_position = {
-                .x = position->x + font_x,
-                .y = position->y + font_y,
+                .x = position.x + font_x,
+                .y = position.y + font_y,
             };
 
-            frame_buffer_draw_pixel(frame_buffer, &pixel_position, pixel_color);
+            frame_buffer_draw_pixel(frame_buffer, pixel_position, pixel_color);
         }
     }
 }
 
 static void frame_buffer_draw_pixel(
     frame_buffer_t* framebuffer,
-    position_t* position,
+    position_t position,
     color_t color
 )
 {
-    size_t framebuffer_offset = (position->y * framebuffer->pitch)
-                              + (position->x * framebuffer->pixel_width);
+    size_t framebuffer_offset = (position.y * framebuffer->pitch)
+                              + (position.x * framebuffer->pixel_width);
     pixel_t* pixel
         = add_pointer(pixel_t*, framebuffer->address, framebuffer_offset);
     pixel->color = color;
