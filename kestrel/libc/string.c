@@ -1,10 +1,10 @@
-#include "libc/string.h"
+#include "kestrel/libc/string.h"
 
 #include <stdint.h>
 #include <string.h>
 
-#include "utility/memory.h"
-#include "utility/string.h"
+#include "kestrel/utility/memory.h"
+#include "kestrel/utility/string.h"
 
 void* memcpy(void* destination, const void* source, size_t size)
 {

@@ -1,7 +1,7 @@
 
-#include "terminal/terminal.h"
+#include "kestrel/terminal/terminal.h"
 
-#include "utility/string.h"
+#include "kestrel/utility/string.h"
 
 void terminal_initialize(terminal_t* terminal, frame_buffer_t* frame_buffer)
 {

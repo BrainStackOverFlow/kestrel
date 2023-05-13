@@ -1,0 +1,3 @@
+build:kestrel --crosstool_top=//toolchain:kestrel_suite
+build:kestrel --cpu=kestrel_cpu
+build:kestrel --host_crosstool_top=@bazel_tools//tools/cpp:toolchain

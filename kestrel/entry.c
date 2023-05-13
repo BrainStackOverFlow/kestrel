@@ -1,10 +1,12 @@
+#include <stdbool.h>
 
+#include "external/limine/limine.h"
+#include "kestrel/terminal/terminal.h"
 #include "libc/stdio.h"
 #include "printf/printf_support.h"
-#include "terminal/terminal.h"
-#include <limine.h>
 
 void entry(void);
+static noreturn void hcf(void);
 
 static volatile struct limine_framebuffer_request limine_framebuffer_request
     = { .id = LIMINE_FRAMEBUFFER_REQUEST, .revision = 0 };
@@ -14,14 +16,6 @@ static volatile struct limine_entry_point_request entry_request = {
     .revision = 0,
     .entry = entry,
 };
-
-static void hcf(void)
-{
-    asm("cli");
-    for (;;) {
-        asm("hlt");
-    }
-}
 
 void entry(void)
 {
@@ -45,4 +39,12 @@ void entry(void)
 
 cleanup:
     hcf();
+}
+
+static void hcf(void)
+{
+    asm("cli");
+    while (true) {
+        asm("hlt");
+    }
 }

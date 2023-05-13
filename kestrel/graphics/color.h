@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 
-#include "utility/macro.h"
+#include "kestrel/utility/macro.h"
 
 typedef struct {
     uint8_t red;

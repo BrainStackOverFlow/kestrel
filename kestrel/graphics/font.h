@@ -3,7 +3,7 @@
 #include <limits.h>
 #include <stdint.h>
 
-#include "utility/macro.h"
+#include "kestrel/utility/macro.h"
 
 #define FONT_CHARACTER_WIDTH 8
 #define FONT_CHARACTER_HEIGHT 16

@@ -1,0 +1,27 @@
+load(":kestrel.bzl", "kestrel_toolchain_config_rule")
+
+package(default_visibility = ["//visibility:public"])
+
+filegroup(name = "empty")
+
+cc_toolchain_suite(
+    name = "kestrel_suite",
+    toolchains = {
+        "kestrel_cpu": ":kestrel_toolchain",
+    },
+)
+
+cc_toolchain(
+    name = "kestrel_toolchain",
+    all_files = ":empty",
+    compiler_files = ":empty",
+    dwp_files = ":empty",
+    linker_files = ":empty",
+    objcopy_files = ":empty",
+    strip_files = ":empty",
+    supports_param_files = 0,
+    toolchain_config = ":kestrel_toolchain_config",
+    toolchain_identifier = "k8-toolchain",
+)
+
+kestrel_toolchain_config_rule(name = "kestrel_toolchain_config")

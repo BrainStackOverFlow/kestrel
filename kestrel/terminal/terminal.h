@@ -1,6 +1,6 @@
 #pragma once
 
-#include "graphics/frame_buffer.h"
+#include "kestrel/graphics/frame_buffer.h"
 
 #define TAB_SIZE 4
 
