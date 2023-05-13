@@ -1,10 +1,10 @@
 
-#include "graphics/frame_buffer.h"
+#include "kestrel/graphics/frame_buffer.h"
 
 #include <stdbool.h>
 
-#include "graphics/pixel.h"
-#include "utility/macro.h"
+#include "kestrel/graphics/pixel.h"
+#include "kestrel/utility/macro.h"
 
 static void frame_buffer_draw_pixel(
     frame_buffer_t* framebuffer,
@@ -53,7 +53,7 @@ void frame_buffer_draw_character(
     }
 }
 
-void frame_buffer_draw_pixel(
+static void frame_buffer_draw_pixel(
     frame_buffer_t* framebuffer,
     position_t* position,
     color_t color

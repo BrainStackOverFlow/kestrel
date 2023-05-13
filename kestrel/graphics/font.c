@@ -1,4 +1,4 @@
-#include "graphics/font.h"
+#include "kestrel/graphics/font.h"
 
 font_t standard_font
     = { .characters = {

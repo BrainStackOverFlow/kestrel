@@ -1,4 +1,4 @@
-#include "graphics/color.h"
+#include "kestrel/graphics/color.h"
 
 const color_t black_color = {
     .red = 0x00,

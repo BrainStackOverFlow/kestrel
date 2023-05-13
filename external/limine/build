@@ -1,0 +1,15 @@
+cc_library(
+    name = "limine",
+    hdrs = ["limine.h"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "limine_artifacts",
+    srcs = [
+        "limine.sys",
+        "limine-cd.bin",
+        "limine-cd-efi.bin",
+    ],
+    visibility = ["//visibility:public"],
+)

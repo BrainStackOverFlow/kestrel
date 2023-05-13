@@ -8,3 +8,7 @@
 #define add_pointer(type, pointer, offset)                                     \
     ((type)(((uint8_t*)(pointer)) + (offset)))
 #endif
+
+#ifndef noreturn
+#define noreturn __attribute__((noreturn))
+#endif

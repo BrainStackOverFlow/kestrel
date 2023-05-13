@@ -1,4 +1,4 @@
-#include "utility/string.h"
+#include "kestrel/utility/string.h"
 
 #include <stdbool.h>
 

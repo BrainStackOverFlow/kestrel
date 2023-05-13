@@ -1,10 +1,9 @@
 #pragma once
 
-#include <limine.h>
-
-#include "graphics/color.h"
-#include "graphics/font.h"
-#include "graphics/position.h"
+#include "external/limine/limine.h"
+#include "kestrel/graphics/color.h"
+#include "kestrel/graphics/font.h"
+#include "kestrel/graphics/position.h"
 
 typedef struct {
     void* address;
