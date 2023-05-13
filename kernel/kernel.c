@@ -1,4 +1,6 @@
 
+#include "libc/stdio.h"
+#include "printf/printf_support.h"
 #include "terminal/terminal.h"
 #include <limine.h>
 
@@ -37,7 +39,9 @@ void entry(void)
     terminal_t terminal;
     terminal_initialize(&terminal, &frame_buffer);
 
-    terminal_draw_string(&terminal, "Hello Kernel Mode!\n");
+    printf_init(&terminal);
+
+    printf("Hello Kernel Mode!\n");
 
 cleanup:
     hcf();

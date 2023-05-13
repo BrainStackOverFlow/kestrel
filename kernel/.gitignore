@@ -2,3 +2,5 @@
 *.elf
 *.o
 *.d
+/printf/printf.h
+/printf/printf.c
