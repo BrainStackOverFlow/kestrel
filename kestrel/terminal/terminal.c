@@ -1,7 +1,8 @@
-
 #include "kestrel/terminal/terminal.h"
 
-#include "external/printf/printf.h"
+#include <stdarg.h>
+
+#include "kestrel/libc/stdio.h"
 #include "kestrel/utility/string.h"
 
 static void terminal_output_gadget_function(char character, void* argument);
