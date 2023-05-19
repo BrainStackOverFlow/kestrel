@@ -8,6 +8,8 @@ cc_library(
         "PRINTF_ALIAS_STANDARD_FUNCTION_NAMES=1",
         "PRINTF_ALIAS_STANDARD_FUNCTION_NAMES_HARD=1",
     ],
+    include_prefix = "external",
     includes = ["src"],
+    strip_include_prefix = "src",
     visibility = ["//visibility:public"],
 )

@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
 #include "external/limine/limine.h"
-#include "external/printf/src/printf/printf.h"
+#include "external/printf/printf.h"
 #include "kestrel/libc/stdio.h"
 #include "kestrel/terminal/terminal.h"
 
