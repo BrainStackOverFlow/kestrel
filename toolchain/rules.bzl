@@ -1,5 +1,5 @@
 """
-This file defines kestrel toolchain related functions and rules.
+This file defines toolchain-related rules.
 """
 
 load(
@@ -12,13 +12,14 @@ load(
 load("@bazel_tools//tools/build_defs/cc:action_names.bzl", "ACTION_NAMES")
 
 def kestrel_toolchain_config_implementation(ctx):
-    """Returns the kestrel toolchain configuration information.
+    """
+    Implement the Kestrel toolchain.
 
     Args:
-        ctx: Configuration context
+        ctx: Context
 
     Returns:
-        Configuration information
+        Kestrel toolchain information
     """
 
     tool_paths = [
@@ -83,13 +84,14 @@ def kestrel_toolchain_config_implementation(ctx):
                                 "-Wall",
                                 "-Wextra",
                                 "-Wpedantic",
-                                # "-Wpadded",
+                                "-Wpadded",
                                 "-std=c2x",
                                 "-ffreestanding",
                                 "-fno-stack-protector",
                                 "-fno-stack-check",
-                                "-fpie",
-                                "-fpic",
+                                "-fno-pie",
+                                "-fno-pic",
+                                "-fno-plt",
                                 "-m64",
                                 "-march=x86-64",
                                 "-mabi=sysv",
@@ -98,6 +100,7 @@ def kestrel_toolchain_config_implementation(ctx):
                                 "-mno-sse",
                                 "-mno-sse2",
                                 "-mno-red-zone",
+                                "-mcmodel=kernel",
                             ],
                         ),
                     ]),
@@ -113,6 +116,7 @@ def kestrel_toolchain_config_implementation(ctx):
                     flag_groups = ([
                         flag_group(flags = [
                             "-nostdlib",
+                            "-no-pie",
                         ]),
                     ]),
                 ),
@@ -124,7 +128,7 @@ def kestrel_toolchain_config_implementation(ctx):
         ctx = ctx,
         features = features,
         cxx_builtin_include_directories = builtin_include_directories,
-        toolchain_identifier = "k8-toolchain",
+        toolchain_identifier = "kestrel-toolchain",
         host_system_name = "local",
         target_system_name = "local",
         target_cpu = "kestrel_cpu",
@@ -135,7 +139,7 @@ def kestrel_toolchain_config_implementation(ctx):
         tool_paths = tool_paths,
     )
 
-kestrel_toolchain_config_rule = rule(
+kestrel_toolchain_config = rule(
     attrs = {},
     provides = [CcToolchainConfigInfo],
     implementation = kestrel_toolchain_config_implementation,

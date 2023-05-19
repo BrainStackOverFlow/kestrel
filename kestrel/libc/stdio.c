@@ -9,7 +9,7 @@ void set_default_terminal(terminal_t* terminal)
 
 void putchar_(char character)
 {
-    if (default_terminal == NULL) {
+    if (NULL == default_terminal) {
         return;
     }
 

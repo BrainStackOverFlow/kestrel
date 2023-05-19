@@ -9,6 +9,5 @@ cc_library(
         "PRINTF_ALIAS_STANDARD_FUNCTION_NAMES_HARD=1",
     ],
     includes = ["src"],
-    # strip_include_prefix = "src",
     visibility = ["//visibility:public"],
 )

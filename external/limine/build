@@ -5,11 +5,19 @@ cc_library(
 )
 
 filegroup(
-    name = "limine_artifacts",
-    srcs = [
-        "limine.sys",
-        "limine-cd.bin",
-        "limine-cd-efi.bin",
-    ],
+    name = "sys",
+    srcs = ["limine.sys"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "cd",
+    srcs = ["limine-cd.bin"],
+    visibility = ["//visibility:public"],
+)
+
+filegroup(
+    name = "efi",
+    srcs = ["limine-cd-efi.bin"],
     visibility = ["//visibility:public"],
 )
