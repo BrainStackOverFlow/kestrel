@@ -16,3 +16,12 @@
 #ifndef noreturn
 #define noreturn __attribute__((noreturn))
 #endif
+
+#ifndef format_function
+#define format_function(format_index, arguments_index)                         \
+    __attribute__((format(printf, format_index, arguments_index)))
+#endif
+
+#ifndef unused
+#define unused(value) ((void)(value))
+#endif

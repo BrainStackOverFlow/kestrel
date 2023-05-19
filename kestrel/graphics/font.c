@@ -1,6 +1,6 @@
 #include "kestrel/graphics/font.h"
 
-font_t standard_font
+const font_t standard_font
     = { .characters = {
             {
                 .rows = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 },

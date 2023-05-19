@@ -1,10 +1,6 @@
 #pragma once
 
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wpadded"
 #include "external/limine/limine.h"
-#pragma GCC diagnostic pop
-
 #include "kestrel/graphics/color.h"
 #include "kestrel/graphics/font.h"
 #include "kestrel/graphics/position.h"
@@ -23,9 +19,9 @@ void frame_buffer_initialize(
 );
 
 void frame_buffer_draw_character(
-    frame_buffer_t* frame_buffer,
+    const frame_buffer_t* frame_buffer,
     position_t position,
-    font_character_t* font_character,
+    const font_character_t* font_character,
     color_t foreground_color,
     color_t backound_color
 );

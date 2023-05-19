@@ -22,4 +22,4 @@ typedef struct {
     font_character_t characters[FONT_CHARACTER_COUNT];
 } font_t;
 
-extern font_t standard_font;
+extern const font_t standard_font;

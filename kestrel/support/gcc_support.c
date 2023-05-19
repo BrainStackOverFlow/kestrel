@@ -1,5 +1,3 @@
-#include "kestrel/libc/string.h"
-
 #include <stdint.h>
 #include <string.h>
 
