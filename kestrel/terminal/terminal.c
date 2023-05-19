@@ -1,8 +1,6 @@
 #include "kestrel/terminal/terminal.h"
 
-#include <stdarg.h>
-
-#include "kestrel/libc/stdio.h"
+#include "external/printf/printf.h"
 #include "kestrel/utility/string.h"
 
 static void terminal_output_gadget_function(char character, void* argument);
@@ -16,6 +14,16 @@ void terminal_initialize(terminal_t* terminal, frame_buffer_t* frame_buffer)
     terminal->row = 0;
     terminal->foreground_color = green_color;
     terminal->background_color = black_color;
+}
+
+void terminal_set_foreground_color(terminal_t* terminal, color_t color)
+{
+    terminal->foreground_color = color;
+}
+
+void terminal_set_background_color(terminal_t* terminal, color_t color)
+{
+    terminal->background_color = color;
 }
 
 void terminal_draw_character(terminal_t* terminal, char character)
@@ -61,13 +69,22 @@ void terminal_draw_format(terminal_t* terminal, const char* format, ...)
 {
     va_list arguments;
     va_start(arguments, format);
+    terminal_draw_format_variadic(terminal, format, arguments);
+    va_end(arguments);
+}
+
+void terminal_draw_format_variadic(
+    terminal_t* terminal,
+    const char* format,
+    va_list arguments
+)
+{
     vfctprintf(
         &terminal_output_gadget_function,
         (void*)terminal,
         format,
         arguments
     );
-    va_end(arguments);
 }
 
 static void terminal_output_gadget_function(char character, void* argument)

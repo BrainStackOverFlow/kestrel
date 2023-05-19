@@ -5,8 +5,6 @@ cc_library(
     defines = [
         "PRINTF_SUPPORT_EXPONENTIAL_SPECIFIERS=0",
         "PRINTF_SUPPORT_DECIMAL_SPECIFIERS=0",
-        "PRINTF_ALIAS_STANDARD_FUNCTION_NAMES=1",
-        "PRINTF_ALIAS_STANDARD_FUNCTION_NAMES_HARD=1",
     ],
     include_prefix = "external",
     includes = ["src"],

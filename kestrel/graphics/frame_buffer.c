@@ -7,7 +7,7 @@
 #include "kestrel/utility/macro.h"
 
 static void frame_buffer_draw_pixel(
-    frame_buffer_t* framebuffer,
+    const frame_buffer_t* framebuffer,
     position_t position,
     color_t color
 );
@@ -25,9 +25,9 @@ void frame_buffer_initialize(
 }
 
 void frame_buffer_draw_character(
-    frame_buffer_t* frame_buffer,
+    const frame_buffer_t* frame_buffer,
     position_t position,
-    font_character_t* font_character,
+    const font_character_t* font_character,
     color_t foreground_color,
     color_t backound_color
 )
@@ -54,7 +54,7 @@ void frame_buffer_draw_character(
 }
 
 static void frame_buffer_draw_pixel(
-    frame_buffer_t* framebuffer,
+    const frame_buffer_t* framebuffer,
     position_t position,
     color_t color
 )

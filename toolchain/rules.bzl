@@ -81,10 +81,10 @@ def kestrel_toolchain_config_implementation(ctx):
                             flags = [
                                 "-nostdlib",
                                 "-nodefaultlibs",
+                                "-Werror",
                                 "-Wall",
                                 "-Wextra",
                                 "-Wpedantic",
-                                "-Wpadded",
                                 "-std=c2x",
                                 "-ffreestanding",
                                 "-fno-stack-protector",
