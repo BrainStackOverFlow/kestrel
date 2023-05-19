@@ -1,7 +1,11 @@
 #include <stdbool.h>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpadded"
 #include "external/limine/limine.h"
-#include "external/printf/printf.h"
+#pragma GCC diagnostic pop
+
+#include "kestrel/libc/libc.h"
 #include "kestrel/libc/stdio.h"
 #include "kestrel/terminal/terminal.h"
 
@@ -25,7 +29,8 @@ void entry(void)
     frame_buffer_initialize(&frame_buffer, limine_framebuffer);
     terminal_initialize(&terminal, &frame_buffer);
 
-    terminal_draw_string(&terminal, "Hello, world!\n");
+    set_default_terminal(&terminal);
+    printf("Hello, world!\n");
 
 cleanup:
 

@@ -1,3 +1,5 @@
+#include "kestrel/libc/libc.h"
+
 #include "kestrel/libc/stdio.h"
 
 static terminal_t* default_terminal;

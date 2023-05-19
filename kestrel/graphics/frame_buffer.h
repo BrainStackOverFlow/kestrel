@@ -1,6 +1,10 @@
 #pragma once
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpadded"
 #include "external/limine/limine.h"
+#pragma GCC diagnostic pop
+
 #include "kestrel/graphics/color.h"
 #include "kestrel/graphics/font.h"
 #include "kestrel/graphics/position.h"
