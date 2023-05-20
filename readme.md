@@ -8,10 +8,10 @@ There are several installation requirements for the project.
 
 ### Bazel & Java
 
-The project uses the `Bazel` build system, which requires a JDK.
+The project uses the `Bazel` build system, which requires a `JDK`.
 
-- Install any JDK (version 8 or above)
-- [Bazel installation guide](https://bazel.build/install)
+- Install any `JDK` (version 8 or above)
+- [`Bazel` installation guide](https://bazel.build/install)
 
 ### xorriso
 
