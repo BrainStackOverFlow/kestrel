@@ -54,7 +54,7 @@ def kestrel_toolchain_config_implementation(ctx):
     ]
 
     builtin_include_directories = [
-        "/usr/lib/gcc/x86_64-linux-gnu/9/include/",
+        "/usr/lib/gcc/x86_64-linux-gnu/11/include/",
         "/usr/include/",
     ]
 
